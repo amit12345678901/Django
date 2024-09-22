@@ -7,6 +7,8 @@ from django.db.models import Q
 def index(request):
     return render(request,'index.html')
 
+def home(request):
+    return render(request,'home.html')
 
 
 def all_emp(request):
