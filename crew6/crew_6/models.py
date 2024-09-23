@@ -33,3 +33,11 @@ class Employee(models.Model):
       
     def __str__(self):
       return "%s %s %s" %(self.first_name, self.last_name, self.phone) 
+
+class Carausel(models.Model):
+    title = models.CharField(max_length=150)  
+    description = models.TextField(max_length=100)  
+    image = models.ImageField(upload_to='pics/%Y/%m/%d/')
+
+    def __str__(self):  # This line should be indented consistently
+        return self.title  # 4 spaces inside the method
