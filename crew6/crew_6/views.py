@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import Employee, Role, department
+from .models import Employee, Role, department,Carausel
 from datetime import datetime
 from django.db.models import Q
 
@@ -8,7 +8,11 @@ def index(request):
     return render(request,'index.html')
 
 def home(request):
-    return render(request,'home.html')
+    obj = Carausel.objects.all()
+    context = {
+        'obj':obj
+    }
+    return render(request,'home.html', context)
 
 def login(request):
     return render(request, 'login.html')

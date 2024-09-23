@@ -19,5 +19,12 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('crew_6.urls'))
+    path('', include('crew_6.urls')),  # Correctly include the app's URL patterns
 ]
+
+# If you're serving static/media files during development
+from django.conf import settings
+from django.conf.urls.static import static
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
